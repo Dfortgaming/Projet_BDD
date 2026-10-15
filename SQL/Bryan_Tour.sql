@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : jeu. 15 oct. 2026 à 13:05
+-- Généré le : jeu. 15 oct. 2026 à 15:19
 -- Version du serveur : 13.0.2-MariaDB-ubu2604
 -- Version de PHP : 8.3.35
 
@@ -30,21 +30,21 @@ SET time_zone = "+00:00";
 CREATE TABLE `Circuit` (
   `Id_Circuit` int(11) NOT NULL,
   `descriptif` text DEFAULT NULL,
-  `Pays` varchar(50) NOT NULL,
-  `villeDepart` varchar(50) NOT NULL,
-  `villeArrivee` varchar(50) NOT NULL,
-  `dateDepart` datetime NOT NULL,
-  `nbrPlacesDisponibles` double NOT NULL,
+  `pays` varchar(50) NOT NULL,
+  `ville_depart` varchar(50) NOT NULL,
+  `ville_arrivee` varchar(50) NOT NULL,
+  `date_depart` datetime NOT NULL,
+  `nbr_places_disponibles` double NOT NULL,
   `duree` smallint(6) NOT NULL,
-  `prixInscription` smallint(6) NOT NULL,
-  `Nom_circuit` varchar(50) DEFAULT NULL
+  `prix_inscription` smallint(6) NOT NULL,
+  `nom_circuit` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
 --
 -- Déchargement des données de la table `Circuit`
 --
 
-INSERT INTO `Circuit` (`Id_Circuit`, `descriptif`, `Pays`, `villeDepart`, `villeArrivee`, `dateDepart`, `nbrPlacesDisponibles`, `duree`, `prixInscription`, `Nom_circuit`) VALUES
+INSERT INTO `Circuit` (`Id_Circuit`, `descriptif`, `pays`, `ville_depart`, `ville_arrivee`, `date_depart`, `nbr_places_disponibles`, `duree`, `prix_inscription`, `nom_circuit`) VALUES
 (1, NULL, 'France ', 'Poërmel', 'Cesson-Sévigné', '2027-10-14 14:13:43', 25, 7, 1000, 'Bryan Tour Breton'),
 (2, NULL, 'Etat-Unis', 'Los Angeles', 'Los Angeles', '2027-10-14 14:18:00', 45, 15, 1500, 'Bryan Tour USA'),
 (4, NULL, 'Royaume-Uni', 'Whashington', 'Londres', '2027-10-14 14:21:51', 20, 7, 800, 'Bryan Tour UK '),
@@ -62,17 +62,17 @@ CREATE TABLE `Client` (
   `Id_client` int(11) NOT NULL,
   `nom` varchar(50) NOT NULL,
   `prenom` varchar(50) NOT NULL,
-  `téléphone` varchar(50) NOT NULL,
+  `telephone` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `MP` varchar(50) DEFAULT NULL,
-  `Admin` tinyint(1) DEFAULT NULL
+  `mot_de_passe` varchar(100) DEFAULT NULL,
+  `admin` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
 --
 -- Déchargement des données de la table `Client`
 --
 
-INSERT INTO `Client` (`Id_client`, `nom`, `prenom`, `téléphone`, `email`, `MP`, `Admin`) VALUES
+INSERT INTO `Client` (`Id_client`, `nom`, `prenom`, `telephone`, `email`, `mot_de_passe`, `admin`) VALUES
 (1, 'Epsi', 'Dewi', '0612345678', 'test@test.fr', 'root', 0),
 (2, 'Mae', 'Maemae', '0612345678', 'test2@test.fr', 'root', 1);
 
@@ -84,7 +84,7 @@ INSERT INTO `Client` (`Id_client`, `nom`, `prenom`, `téléphone`, `email`, `MP`
 
 CREATE TABLE `Etape` (
   `Id_Etape` int(11) NOT NULL,
-  `dateEtape` date NOT NULL,
+  `date_etape` date NOT NULL,
   `duree` tinyint(4) NOT NULL,
   `Id_Lieu` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
@@ -93,7 +93,7 @@ CREATE TABLE `Etape` (
 -- Déchargement des données de la table `Etape`
 --
 
-INSERT INTO `Etape` (`Id_Etape`, `dateEtape`, `duree`, `Id_Lieu`) VALUES
+INSERT INTO `Etape` (`Id_Etape`, `date_etape`, `duree`, `Id_Lieu`) VALUES
 (1, '2027-10-15', 1, 52),
 (2, '2027-10-16', 2, 41),
 (3, '2027-10-17', 1, 43),
@@ -119,7 +119,7 @@ INSERT INTO `Etape` (`Id_Etape`, `dateEtape`, `duree`, `Id_Lieu`) VALUES
 
 CREATE TABLE `Lieu` (
   `Id_Lieu` int(11) NOT NULL,
-  `Prix_visite` decimal(5,2) NOT NULL,
+  `prix_visite` decimal(5,2) NOT NULL,
   `ville` varchar(50) NOT NULL,
   `descriptif` text DEFAULT NULL,
   `label` varchar(50) DEFAULT NULL
@@ -129,7 +129,7 @@ CREATE TABLE `Lieu` (
 -- Déchargement des données de la table `Lieu`
 --
 
-INSERT INTO `Lieu` (`Id_Lieu`, `Prix_visite`, `ville`, `descriptif`, `label`) VALUES
+INSERT INTO `Lieu` (`Id_Lieu`, `prix_visite`, `ville`, `descriptif`, `label`) VALUES
 (41, 0.00, 'Ploërmel', 'Lycée La Mennais - Les origines bretonnes de Bryan', 'Historique'),
 (42, 5.00, 'Cesson-Sévigné', 'Campus EPSI - Le lieu d\'études du développeur Bryan', 'High-Tech'),
 (43, 25.00, 'Cesson-Sévigné', 'Appartement du Bryan Originel', 'Historique'),
@@ -155,30 +155,45 @@ INSERT INTO `Lieu` (`Id_Lieu`, `Prix_visite`, `ville`, `descriptif`, `label`) VA
 
 CREATE TABLE `Ordre_de_passage` (
   `Id_Etape` int(11) NOT NULL,
-  `Id_Circuit` int(11) NOT NULL
+  `Id_Circuit` int(11) NOT NULL,
+  `ordre` tinyint(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
 --
 -- Déchargement des données de la table `Ordre_de_passage`
 --
 
-INSERT INTO `Ordre_de_passage` (`Id_Etape`, `Id_Circuit`) VALUES
-(1, 1),
-(2, 1),
-(3, 1),
-(4, 1),
-(5, 1),
-(6, 2),
-(7, 2),
-(8, 2),
-(9, 2),
-(10, 2),
-(16, 4),
-(17, 4),
-(14, 6),
-(15, 6),
-(12, 8),
-(13, 8);
+INSERT INTO `Ordre_de_passage` (`Id_Etape`, `Id_Circuit`, `ordre`) VALUES
+(1, 1, NULL),
+(2, 1, NULL),
+(3, 1, NULL),
+(4, 1, NULL),
+(5, 1, NULL),
+(6, 2, NULL),
+(7, 2, NULL),
+(8, 2, NULL),
+(9, 2, NULL),
+(10, 2, NULL),
+(12, 8, NULL),
+(13, 8, NULL),
+(14, 6, NULL),
+(15, 6, NULL),
+(16, 4, NULL),
+(17, 4, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `Photos`
+--
+
+CREATE TABLE `Photos` (
+  `Id_Photos` int(11) NOT NULL,
+  `nom` varchar(50) DEFAULT NULL,
+  `legende` varchar(50) DEFAULT NULL,
+  `photo` text DEFAULT NULL,
+  `Id_Lieu` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -189,15 +204,17 @@ INSERT INTO `Ordre_de_passage` (`Id_Etape`, `Id_Circuit`) VALUES
 CREATE TABLE `Reservation` (
   `Id_client` int(11) NOT NULL,
   `Id_Circuit` int(11) NOT NULL,
-  `status` varchar(50) NOT NULL
+  `status` enum('En cours','Validé','Annulé') NOT NULL,
+  `date_creation` datetime DEFAULT NULL,
+  `date_mise_a_jour` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
 --
 -- Déchargement des données de la table `Reservation`
 --
 
-INSERT INTO `Reservation` (`Id_client`, `Id_Circuit`, `status`) VALUES
-(1, 1, 'En Cours');
+INSERT INTO `Reservation` (`Id_client`, `Id_Circuit`, `status`, `date_creation`, `date_mise_a_jour`) VALUES
+(1, 1, 'En cours', NULL, NULL);
 
 --
 -- Index pour les tables déchargées
@@ -237,6 +254,13 @@ ALTER TABLE `Ordre_de_passage`
   ADD KEY `Id_Circuit` (`Id_Circuit`);
 
 --
+-- Index pour la table `Photos`
+--
+ALTER TABLE `Photos`
+  ADD PRIMARY KEY (`Id_Photos`),
+  ADD KEY `Id_Lieu` (`Id_Lieu`);
+
+--
 -- Index pour la table `Reservation`
 --
 ALTER TABLE `Reservation`
@@ -272,6 +296,12 @@ ALTER TABLE `Lieu`
   MODIFY `Id_Lieu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
+-- AUTO_INCREMENT pour la table `Photos`
+--
+ALTER TABLE `Photos`
+  MODIFY `Id_Photos` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Contraintes pour les tables déchargées
 --
 
@@ -287,6 +317,12 @@ ALTER TABLE `Etape`
 ALTER TABLE `Ordre_de_passage`
   ADD CONSTRAINT `1` FOREIGN KEY (`Id_Etape`) REFERENCES `Etape` (`Id_Etape`),
   ADD CONSTRAINT `2` FOREIGN KEY (`Id_Circuit`) REFERENCES `Circuit` (`Id_Circuit`);
+
+--
+-- Contraintes pour la table `Photos`
+--
+ALTER TABLE `Photos`
+  ADD CONSTRAINT `1` FOREIGN KEY (`Id_Lieu`) REFERENCES `Lieu` (`Id_Lieu`);
 
 --
 -- Contraintes pour la table `Reservation`
