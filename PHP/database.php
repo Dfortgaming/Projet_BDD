@@ -4,7 +4,7 @@ function db_connect() {
     include "config.php";
     
     try {
-        $dbh = new PDO("mysql:host=$hostname:$port;dbname=$dbname", $dbuser, $dbpass);
+        $dbh = new PDO("mysql:host=$host:$port;dbname=$dbname", $dbuser, $dbpass);
     } 
     catch(PDOException $exception) {
     
@@ -101,4 +101,10 @@ function delete_Circuit(PDO $dbh, string $nom){
     if ($result != 0){
         throw new AssertionError("You have not deleted the group record $nom in the database...");
     }
+}
+function get_user_by_email(PDO $dbh, string $email) {
+    $sql = "SELECT * FROM Client WHERE email = :email";
+    $sth = $dbh->prepare($sql);
+    $sth->execute(['email' => $email]);
+    return $sth->fetch(PDO::FETCH_ASSOC);
 }
