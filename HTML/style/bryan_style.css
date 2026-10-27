@@ -194,7 +194,7 @@ h3 {
     line-height: 1.6;
 }
 
-.stats{
+.stats {
     color: var(--text-secondary);
     display: grid;
     grid-template-columns: auto auto auto;
@@ -203,83 +203,82 @@ h3 {
     font-size: 0.8rem;
     font-weight: 600;
     border-bottom: var(--border) solid 1px;
-    gap: auto;
     background-color: var(--bg-main);
 }
 
-.stat{
+.stat {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.php{
+.php {
     font-size: 1.5rem;
     padding: 1rem;
     color: var(--badge-text);
 }
 
-main{
+main {
     background-color: var(--badge-bg);
 }
 
-.tete{
+.tete {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0.6rem;
 }
 
-.title-content{
+.title-content {
     color: var(--text-primary);
     font-size: 1.3rem;
     font-weight: 600;
     margin: 1rem;
 }
 
-.p-circuit{
+.p-circuit {
     color: var(--badge-text);
     font-size: 1rem;
     font-weight: 500;
     align-items: center;
 }
 
-.items{
+.items {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center; 
 }
 
-.circ{
+.circ {
     background-color: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 15px;
     padding: 0.5rem;
-    min-width: 20;
+    width: 100%;
     max-width: 27rem;
     margin-bottom: 1rem;
 }
 
-.top{
+.top {
     display: flex;
     flex-direction: column;
     padding: 1.3rem;
-    align-items:start;
+    align-items: start;
     gap: 1rem;
     border-bottom: 1px solid var(--border);
 }
 
-.type{
+.type {
     background-color: var(--badge-bg);
     color: var(--badge-text);
-    border-radius: 7px ;
+    border-radius: 7px;
     padding: 0.3rem;
     width: auto;
     font-size: 0.6rem;
 }
 
-.title-circ{
+.title-circ {
     color: var(--text-primary);
     width: auto;
     font-size: 2rem;
@@ -287,7 +286,7 @@ main{
     margin-left: 1rem;
 }
 
-.steps{
+.steps {
     color: var(--text-secondary);
     width: auto;
     font-size: 1rem;
@@ -295,7 +294,7 @@ main{
     margin-left: 1rem;
 }
 
-.desc{
+.desc {
     color: var(--text-secondary);
     width: auto;
     font-size: 0.7rem;
@@ -303,21 +302,28 @@ main{
     margin-left: 1rem;
 }
 
-.bottom{    
+.bottom {    
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
-.prix{
+.places {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.prix {
     color: var(--badge-text);
     font-size: 1.4rem;
     font-weight: 700;
 }
 
-.order{
+.order {
     color: var(--text-primary);
     font-size: 1rem;
     font-weight: 700;
@@ -329,17 +335,17 @@ main{
     border-radius: 0.625rem;
 }
 
-a:hover{
+a:hover {
     color: white;
     text-decoration: underline;
 }
 
-a{
+a {
     text-decoration: none;
     color: white ;
 }
 
-.mid-text{
+.mid-text {
     text-align: center;
     max-width: 8rem;
 }
@@ -510,7 +516,7 @@ a{
         font-size: 1rem;
     }
 
-    .sticker{
+    .sticker {
         margin-top: 3rem;
     }
 
@@ -527,61 +533,58 @@ a{
         font-size: 1.125rem;
     }
 
-    .stats{
-    color: var(--text-secondary);
-    display: grid;
-    grid-template-columns: auto auto auto;
-    padding: 0.925rem;
-    align-items: center;
-    font-size: 0.925rem;
-    font-weight: 600;
-    border-bottom: var(--border) solid 1.125px;
+    .stats {
+        color: var(--text-secondary);
+        display: grid;
+        grid-template-columns: auto auto auto;
+        padding: 0.925rem;
+        align-items: center;
+        font-size: 0.925rem;
+        font-weight: 600;
+        border-bottom: var(--border) solid 1.125px;
     }
 
-    .stat{
+    .stat {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .php{
+    .php {
         font-size: 1.625rem;
         padding: 1.125rem;
         color: var(--badge-text);
     }
 
-    .tete{
+    .tete {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 1rem;
     }
 
-    .title-content{
+    .title-content {
         color: var(--text-primary);
         font-size: 1.7rem;
         font-weight: 600;
         margin: 1rem;
     }
 
-
-
-    .p-circuit{
+    .p-circuit {
         color: var(--badge-text);
         font-size: 1.3rem;
         font-weight: 500;
         align-items: center;
     }
 
-
-    .items{
+    .items {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center; 
     }
 
-    .circ{
+    .circ {
         background-color: var(--bg-card);
         border: 1px solid var(--border);
         border-radius: 15px;
@@ -590,25 +593,25 @@ a{
         margin-bottom: 2rem;
     }
 
-    .top{
+    .top {
         display: flex;
         flex-direction: column;
         padding: 1.3rem;
-        align-items:start;
+        align-items: start;
         gap: 1rem;
         border-bottom: 1px solid var(--border);
     }
 
-    .type{
+    .type {
         background-color: var(--badge-bg);
         color: var(--badge-text);
-        border-radius: 7px ;
+        border-radius: 7px;
         padding: 0.3rem;
         width: auto;
         font-size: 0.6rem;
     }
 
-    .title-circ{
+    .title-circ {
         color: var(--text-primary);
         width: auto;
         font-size: 2rem;
@@ -616,7 +619,7 @@ a{
         margin-left: 1rem;
     }
 
-    .steps{
+    .steps {
         color: var(--text-secondary);
         width: auto;
         font-size: 1rem;
@@ -624,7 +627,7 @@ a{
         margin-left: 1rem;
     }
 
-    .desc{
+    .desc {
         color: var(--text-secondary);
         width: auto;
         font-size: 0.7rem;
@@ -632,21 +635,21 @@ a{
         margin-left: 1rem;
     }
 
-    .bottom{    
+    .bottom {    
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 1rem;
-        gap: 1rem;
+        gap: 0.5rem;
     }
 
-    .prix{
+    .prix {
         color: var(--badge-text);
         font-size: 1.4rem;
         font-weight: 700;
     }
 
-    .order{
+    .order {
         color: var(--text-primary);
         font-size: 1rem;
         font-weight: 700;
@@ -696,7 +699,7 @@ a{
         gap: 2.5rem;
     }
     
-    .sticker{
+    .sticker {
         margin-top: 3rem;
     }
 
@@ -718,87 +721,87 @@ a{
         font-size: 1.25rem;
     }
 
-    .stats{
-    color: var(--text-secondary);
-    display: grid;
-    grid-template-columns: auto auto auto;
-    padding: 1.05rem;
-    align-items: center;
-    font-size: 1.05rem;
-    font-weight: 600;
-    border-bottom: var(--border) solid 1.25px;
+    .stats {
+        color: var(--text-secondary);
+        display: grid;
+        grid-template-columns: auto auto auto;
+        padding: 1.05rem;
+        align-items: center;
+        font-size: 1.05rem;
+        font-weight: 600;
+        border-bottom: var(--border) solid 1.25px;
     }
 
-    .stat{
+    .stat {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .php{
+    .php {
         font-size: 1.75rem;
         padding: 1.25rem;
         color: var(--badge-text);
     }
 
-    .tete{
+    .tete {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 2rem;
     }
 
-    .title-content{
+    .title-content {
         color: var(--text-primary);
         font-size: 2rem;
         font-weight: 600;
         margin: 1rem;
     }
 
-    .p-circuit{
+    .p-circuit {
         color: var(--badge-text);
         font-size: 1.4rem;
         font-weight: 500;
         align-items: center;
     }
 
-
-    .items{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center; 
-        gap: 5rem;
+    .items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto 3rem auto;
+        padding: 0 1rem;
     }
 
-    .circ{
+    .circ {
         background-color: var(--bg-card);
         border: 1px solid var(--border);
         border-radius: 15px;
         padding: 0.5rem;
-        width: 27rem;
-        margin-bottom: 3rem;
+        width: 100%;
+        margin-bottom: 0;
     }
 
-    .top{
+    .top {
         display: flex;
         flex-direction: column;
         padding: 1.3rem;
-        align-items:start;
+        align-items: start;
         gap: 1rem;
         border-bottom: 1px solid var(--border);
     }
 
-    .type{
+    .type {
         background-color: var(--badge-bg);
         color: var(--badge-text);
-        border-radius: 7px ;
+        border-radius: 7px;
         padding: 0.3rem;
         width: auto;
         font-size: 0.6rem;
     }
 
-    .title-circ{
+    .title-circ {
         color: var(--text-primary);
         width: auto;
         font-size: 2rem;
@@ -806,7 +809,7 @@ a{
         margin-left: 1rem;
     }
 
-    .steps{
+    .steps {
         color: var(--text-secondary);
         width: auto;
         font-size: 1rem;
@@ -814,7 +817,7 @@ a{
         margin-left: 1rem;
     }
 
-    .desc{
+    .desc {
         color: var(--text-secondary);
         width: auto;
         font-size: 0.7rem;
@@ -822,21 +825,21 @@ a{
         margin-left: 1rem;
     }
 
-    .bottom{    
+    .bottom {    
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 1rem;
-        gap: 1rem;
+        gap: 0.5rem;
     }
 
-    .prix{
+    .prix {
         color: var(--badge-text);
         font-size: 1.4rem;
         font-weight: 700;
     }
 
-    .order{
+    .order {
         color: var(--text-primary);
         font-size: 1rem;
         font-weight: 700;
