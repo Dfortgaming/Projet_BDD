@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/style.css?v=2">
+
+    <title>Bryan's Tour</title>
+
+    <script src="./js/script.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <header class="d_blue">
+
+            <div class="nav-top">
+
+                <button
+                    class="menu-toggle"
+                    id="menu-toggle"
+                    aria-label="Ouvrir le menu"
+                    aria-expanded="false"
+                    aria-controls="pages">
+                    ☰
+                </button>
+
+                <div class="title_header">
+                    <div class="title_w">Bryan</div>
+                    <div class="title_b">Tour</div>
+                </div>
+
+                <div class="account">
+                    Mon Compte
+                </div>
+
+            </div>
+
+            <nav class="pages" id="pages">
+                <a href="./index.html" class="p_link">Accueil</a>
+                <a href="./circuits.html" class="p_link_a">Circuits</a>
+                <a href="#reservations" class="p_link">Réservations</a>
+                <a href="#contact" class="p_link">Contactez-nous</a>
+            </nav>
+
+        </header>
+
+        <section class="preview" id="accueil">
+
+            <h1>
+                Circuits disponibles pour le Bryan
+                <span>Tour</span>
+            </h1>
+
+            <div class="subtitle">
+                <h3>
+                    Découvrez le circuit qui remplissera vos critères et profitez d'une activité qui mèle découverte et loisir !
+                </h3>
+            </div>
+        
+        </section>
+        <div class="content">
+            <div class="tete">
+                <div class="title-content">Nos Circuits</div>
+            </div>
+            <section class="items">
+                <div class="circ">
+                    <div class="top">
+                        <div class="type">Type (php)</div>
+                        <div class="title-circ">Titre circuit (php)</div>
+                        <div class="steps">Étapes circuit (php)</div>
+                        <div class="desc">Description (php)</div>
+                    </div>
+                    <div class="bottom">
+                        <div class="prix">Prix (php)</div>
+                        <div class="order">Réserver</div>
+                    </div>
+                </div>
+                <div class="circ">
+                    <div class="top">
+                        <div class="type">Type (php)</div>
+                        <div class="title-circ">Titre circuit (php)</div>
+                        <div class="steps">Étapes circuit (php)</div>
+                        <div class="desc">Description (php)</div>
+                    </div>
+                    <div class="bottom">
+                        <div class="prix">Prix (php)</div>
+                        <div class="order">Réserver</div>
+                    </div>
+                </div>
+                <div class="circ">
+                    <div class="top">
+                        <div class="type">Type (php)</div>
+                        <div class="title-circ">Titre circuit (php)</div>
+                        <div class="steps">Étapes circuit (php)</div>
+                        <div class="desc">Description (php)</div>
+                    </div>
+                    <div class="bottom">
+                        <div class="prix">Prix (php)</div>
+                        <div class="order">Réserver</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
