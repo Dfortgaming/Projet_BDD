@@ -658,6 +658,25 @@ a{
         border-radius: 0.625rem;
     }
 
+    .choice .title{
+        font-size: 1.5rem;
+    }
+
+    .choice .number{
+        font-size: 1.5rem;
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .header{
+        padding: 1rem;
+    }
+
+    .content{
+        display:grid;
+        grid-template-columns:auto auto ;
+    }
+
 
 
 }
@@ -828,6 +847,26 @@ a{
         border: 0.125rem solid var(--border);
         border-radius: 0.625rem;
     }
+
+        .choice .title{
+        font-size: 1.5rem;
+    }
+
+    .choice .number{
+        font-size: 1.5rem;
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .header{
+        padding: 1rem;
+    }
+
+    .content{
+        display:grid;
+        grid-template-columns:auto auto auto ;
+    }
+
 
 
 
