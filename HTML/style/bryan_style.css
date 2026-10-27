@@ -115,7 +115,6 @@ body {
 }
 
 .pages a {
-    color: white;
     text-decoration: none;
     font-size: 1rem;
 }
@@ -123,10 +122,12 @@ body {
 .p_link_a {
     text-decoration: underline 0.1875rem solid var(--badge-text) !important;
     text-underline-offset: 0.5rem;
+    color: white;
 }
 
 .p_link {
     font-size: 1rem;
+    color: var(--text-muted-dark);
 }
 
 .sticker {
@@ -328,6 +329,7 @@ main{
 }
 
 a:hover{
+    color: white;
     text-decoration: underline;
 }
 
