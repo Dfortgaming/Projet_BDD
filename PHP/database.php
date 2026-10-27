@@ -108,3 +108,12 @@ function get_user_by_email(PDO $dbh, string $email) {
     $sth->execute(['email' => $email]);
     return $sth->fetch(PDO::FETCH_ASSOC);
 }
+function select_featured_circuits(PDO $dbh, array $ids = [1, 2, 4]): array {
+    if (empty($ids)) return [];
+
+    $placeholders = implode(',', array_fill(0, count($ids), '?'));
+    $sql = "SELECT * FROM Circuit WHERE Id_Circuit IN ($placeholders)";
+    $sth = $dbh->prepare($sql);
+    $sth->execute($ids);
+    return $sth->fetchAll(PDO::FETCH_ASSOC);
+}

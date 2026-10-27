@@ -1,3 +1,14 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit();
+}
+
+require_once '../PHP/database.php';
+$dbh = db_connect();
+$circuits = select_featured_circuits($dbh, [1, 2, 6]);
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -45,8 +56,8 @@
             </div>
 
             <nav class="pages" id="pages">
-                <a href="./index.html" class="p_link_a">Accueil</a>
-                <a href="./circuits.html" class="p_link">Circuits</a>
+                <a href="./homepage.php" class="p_link_a">Accueil</a>
+                <a href="./circuits.php" class="p_link">Circuits</a>
                 <a href="#reservations" class="p_link">Réservations</a>
                 <a href="#contact" class="p_link">Contactez-nous</a>
             </nav>
@@ -90,52 +101,41 @@
             </div>
 
         </section>
+
         <div class="content">
             <div class="tete">
                 <div class="title-content">Nos principaux Circuits</div>
-                <a href="./circuits.html" class="p-circuit">Voir tous nos circuits →</a>
+                <a href="./circuits.php" class="p-circuit">Voir tous nos circuits →</a>
             </div>
-            <section class="items">
-                <div class="circ">
-                    <div class="top">
-                        <div class="type">Type (php)</div>
-                        <div class="title-circ">Titre circuit (php)</div>
-                        <div class="steps">Étapes circuit (php)</div>
-                        <div class="desc">Description (php)</div>
-                    </div>
-                    <div class="bottom">
-                        <div class="prix">Prix (php)</div>
-                        <div class="order">Réserver</div>
-                    </div>
-                </div>
-                <div class="circ">
-                    <div class="top">
-                        <div class="type">Type (php)</div>
-                        <div class="title-circ">Titre circuit (php)</div>
-                        <div class="steps">Étapes circuit (php)</div>
-                        <div class="desc">Description (php)</div>
-                    </div>
-                    <div class="bottom">
-                        <div class="prix">Prix (php)</div>
-                        <div class="order">Réserver</div>
-                    </div>
-                </div>
-                <div class="circ">
-                    <div class="top">
-                        <div class="type">Type (php)</div>
-                        <div class="title-circ">Titre circuit (php)</div>
-                        <div class="steps">Étapes circuit (php)</div>
-                        <div class="desc">Description (php)</div>
-                    </div>
-                    <div class="bottom">
-                        <div class="prix">Prix (php)</div>
-                        <div class="order">Réserver</div>
-                    </div>
-                </div>
 
+            <section class="items">
+                <?php foreach ($circuits as $circuit): ?>
+                    <div class="circ">
+                        <div class="top">
+                            <div class="type"><?= ($circuit['pays']) ?></div>
+
+                            <div class="title-circ"><?= ($circuit['nom_circuit']) ?></div>
+
+                            <div class="steps">
+                                <?= ($circuit['ville_depart']) ?> &rarr; <?= ($circuit['ville_arrivee']) ?> (<?= ($circuit['duree']) ?> j)
+                            </div>
+
+                            <div class="desc">
+                                <?= ($circuit['descriptif'] ?? 'Aucune description disponible.') ?>
+                            </div>
+                        </div>
+
+                        <div class="bottom">
+                            <div class="prix"><?= ($circuit['prix_inscription']) ?> €</div>
+
+                            <div class="places"><?= ($circuit['nbr_places_disponibles']) ?> places</div>
+
+                            <a href="reservations.php?id=<?= $circuit['Id_Circuit'] ?>" class="order" style="text-decoration: none; display: inline-block;">Réserver</a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </section>
         </div>
     </main>
-
 </body>
 </html>
