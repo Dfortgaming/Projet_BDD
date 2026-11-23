@@ -15,10 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Vérification de la correspondance (en texte brut pour l'instant)
         if ($user && $user['mot_de_passe'] === $password) {
-            $_SESSION['user_id'] = $user['Id_client'];
-            $_SESSION['nom'] = $user['nom'];
-            $_SESSION['prenom'] = $user['prenom'];
-            $_SESSION['admin'] = $user['admin'];
+            $_SESSION['user_id']   = $user['Id_client'];
+            $_SESSION['nom']       = $user['nom'];
+            $_SESSION['prenom']    = $user['prenom'];
+            $_SESSION['telephone'] = $user['telephone'];
+            $_SESSION['email']     = $user['email'];
+            $_SESSION['admin']     = $user['admin'];
 
             header('Location: homepage.php');
             exit();
